@@ -1,0 +1,25 @@
+{
+    "name": "app",
+    "author": "Tobias Høegh",
+    "version": "0.1.0",
+    "homepage": "/tv2_app_slick",
+    "private": true,
+    "dependencies": {
+        "autobind-decorator": "^2.0.0",
+        "custom-react-scripts": "^0.0.23",
+        "iscroll": "^5.2.0",
+        "react": "^15.6.1",
+        "react-blur": "^0.5.2",
+        "react-dom": "^15.6.1",
+        "react-fetch": "^0.0.9",
+        "react-iscroll": "^2.0.3",
+        "react-slick": "^0.14.11"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    }
+}

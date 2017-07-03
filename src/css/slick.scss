@@ -1,0 +1,58 @@
+/**
+ * Use slick.css and /slick-theme.css, but customize things
+ *
+ * @author Tobias Høegh <tobias@tujo.no>
+ */
+
+ //use baicly the default slick css ...
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+//... with a few changes
+.slick-slide {
+    height: 100vh;
+    color: white;
+}
+
+.slick-dots {
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    background: transparent;
+    // background: rgba(41, 44, 51, .5);
+}
+.slick-dots li {
+    margin: 6px 0 0 2%;
+}
+.slick-dots li button {
+    width: 60px;
+    height: 60px;
+}
+.slick-dots li button:before {
+    font-size: 14px;
+    // color: white;
+    opacity: .30;
+}
+.slick-dots li.slick-active button:before {
+    opacity: .60;
+    // color: white;
+}
+
+.slick-arrow {
+    position: fixed;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+}
+.slick-prev {
+    left: 0;
+    margin-left: -10px;
+}
+.slick-next {
+    right: 0;
+    margin-right: -10px;
+}
+.slick-prev:before,
+.slick-next:before {
+    font-size: 40px;
+}

@@ -1,0 +1,102 @@
+/**
+ * This is the main app css
+ *
+ * @author Tobias Høegh <tobias@tujo.no>
+ */
+
+/** status messages */
+ .pg-status-message {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+}
+.pg-status-message.error p {
+    padding: 20px 30px;
+    background-color: #eee;
+}
+.pg-status-message.loading p {
+    padding: 20px 30px;
+    color: #aaa;
+}
+.pg-noting-related p {
+    font-size: 16px;
+    font-weight: 100;
+    color: #eee;
+}
+
+.pg-page {
+    overflow: hidden;
+    height: 100vh;
+}
+.blur-view {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.5;
+}
+.blur-view-fx-enter {
+    opacity: 0.01;
+}
+.blur-view-fx-enter.blur-view-fx-enter-active {
+    transition: opacity 800ms ease-in;
+    opacity: 1;
+}
+.blur-view-fx-leave {
+    opacity: 1;
+}
+.blur-view-fx-leave.blur-view-fx-leave-active {
+    opacity: 0.01;
+    transition: opacity 400ms ease-in;
+}
+
+.pg-page .pg-page-inner {
+    overflow: hidden;
+    margin: 40px 10%;
+    padding: 5% 5% 140px;
+    text-align: left;
+    // background: rgba(41, 44, 51, .5);
+    background: linear-gradient(
+        to bottom,
+        rgba(41, 44, 51, 0.5) 0%,
+        rgba(41, 44, 51, 0.5) 50%,
+        rgba(41, 44, 51, 0) 100%
+    );
+    border-radius: 10px;
+}
+.pg-page .pg-page-inner h1 {
+    font-size: 40px;
+    // padding: 0 10px 0 0;
+}
+
+.pg-related-titles {
+    padding: 5px 0 0;
+    font-size: 16px;
+    color: #eee;
+    text-align: left;
+}
+.pg-related-titles h2 {
+    font-size: 18px;
+    opacity: 0.6;
+}
+.pg-related-titles ul {
+    padding: 0;
+}
+.pg-related-titles ul li {
+    list-style-type: none;
+}
+// .pg-related-titles ul li p {
+//     color: #eee;
+// }
+
+// @media all and (max-width: 600px) {
+// }
+
+@media all and (max-width: 400px) {
+    .pg-page .pg-page-inner h1 {
+        font-size: 30px;
+    }
+}
