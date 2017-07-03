@@ -11,7 +11,7 @@ To run this app You have simply to locate to **index.html** - You find this file
 ```
 cd [YOUR LOCATION]/app/build
 ```
-You can also copy and locate this folder anywhere inside Your server environment. The folder has not be called */tv2*
+You can also copy and locate this folder anywhere inside Your server environment. The folder has not be called */tv2_app_slick*
 
 ## More details on how to build and run
 
