@@ -6,27 +6,7 @@
 
 //load classes and components
 import React, { Component } from 'react';
-// import Flickity from './../components/Flickity';
-// import Slick from 'react-slick';
-import Slick from './../lib/react-slick';//I use a modifyed version of slick here. Make sure to track version in future manuallty
-
-/**
-    This I changed in react-slick:
-    1. In the the file "/src/mixins/event-handlers" and function "swipeMove"
-    2. I inserted the following code at line 111
-
-    //make sure the user swipse a little bit before we actually moves the slider
-    if(touchObject.swipeLength < 10){
-        return;
-    }
-    //and check if the user first swipes vertical, then skip as well
-    touchObject.swipeLengthVertical = Math.round(Math.sqrt(Math.pow(touchObject.curY - touchObject.startY, 2)));
-    if(touchObject.swipeLengthVertical > touchObject.swipeLength){
-        this.setState({ swiped: true });
-        e.preventDefault();
-        return;
-    }
-*/
+import Slick from 'react-slick';//I use a modifyed version of slick here. Se package.json
 
 import PageView from './../components/PageView';
 import { ErrorView } from './../components/StatusViews';
