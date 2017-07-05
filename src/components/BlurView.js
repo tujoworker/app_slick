@@ -6,7 +6,6 @@
 
 //load classes and components
 import React, { Component } from 'react';
-import Fetch from 'react-fetch';
 import Blur from 'react-blur';
 
 //CSSTransitionGroup did not work, as we dont know when the blur calculation is complete
@@ -19,7 +18,6 @@ class BlurView extends Component {
     };
     constructor(props) {
         super(props);
-        console.log('BlurView');
         this.url =
             'https://api.themoviedb.org/3/search/movie?api_key=f99ab18fc8db565b4581fbf81f28d90f&query=' +
             encodeURIComponent(this.props.title.replace('C More: ', ''));
@@ -27,19 +25,16 @@ class BlurView extends Component {
 
     componentDidMount() {
         if (Config.loadBlurImage && this.url) {
-            this.setState({
-                view: (
-                    <Fetch
-                        url={this.url}
-                        onSuccess={this.onSuccess.bind(this)}
-                        onError={this.onError.bind(this)}
-                    />
-                )
-            });
+            console.log(this.url);
+            return fetch(this.url)
+                .then(response => response.json())
+                .then(this.onSuccess.bind(this))
+                .catch(this.onError.bind(this));
         }
     }
 
     onSuccess(data) {
+        console.log(data);
         if (this.imgPath) return;
         try {
             const firstItm = data.results[0];
@@ -81,21 +76,5 @@ class BlurView extends Component {
         // );
     }
 }
-
-//this is a experminet to load fetch a diffrent way
-// class GetData extends Component {
-//     // constructor(props) {
-//     //     super(props);
-//     // }
-//     render() {
-//         return (
-//             <Fetch
-//                 url={this.props.url}
-//                 onSuccess={this.props.onSuccess}
-//                 onError={this.props.onError}
-//             />
-//         );
-//     }
-// }
 
 export default BlurView;

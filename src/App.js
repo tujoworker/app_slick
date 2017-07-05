@@ -6,7 +6,6 @@
 
 //load classes and components
 import React, { Component } from 'react';
-import Fetch from 'react-fetch';
 
 import Slider from './components/Slider';
 import { LoadingView, ErrorView } from './components/StatusViews';
@@ -23,6 +22,20 @@ export default class App extends Component {
         this.state = { content: <LoadingView text="Loading data ..." /> };
     }
 
+    componentDidMount() {
+        return (
+            fetch(Config.APIURL, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(this.onSuccess.bind(this))
+                .catch(this.onError.bind(this))
+        );
+    }
+
     onSuccess(data) {
         try {
             this.setState({
@@ -37,20 +50,14 @@ export default class App extends Component {
 
     onError(error) {
         this.setState({
-            content: <ErrorView text={error.message} />
+            statesView: <ErrorView text={error.message} />
         });
     }
 
-    //fetch first tata form the APIURL and later show it in "content"
     render() {
         return (
             <div>
                 {this.state.content}
-                <Fetch
-                    url={Config.APIURL}
-                    onSuccess={this.onSuccess.bind(this)}
-                    onError={this.onError.bind(this)}
-                />
             </div>
         );
     }
